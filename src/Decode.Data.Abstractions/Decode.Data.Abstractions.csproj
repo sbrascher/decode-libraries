@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <PackageId>Decode.Data.Abstractions</PackageId>
+    <Authors>Sérgio Brascher</Authors>
+    <Description>Interfaces and abstractions for Unit of Work and DbSession patterns.</Description>
+    <PackageTags>dapper;unit-of-work;database;abstractions;repository</PackageTags>
+    <PackageProjectUrl>https://github.com/sbrascher/decode-libraries</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sbrascher/decode-libraries</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+</Project>
