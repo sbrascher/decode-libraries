@@ -1,23 +1,23 @@
 # Decode Libraries
 
-An ecosystem of modern, lightweight, and high-performance .NET libraries designed to accelerate application development.
+Um ecossistema de bibliotecas .NET modernas e leves para acelerar o desenvolvimento.
 
-## 🚀 Available Libraries
+## 🚀 Bibliotecas Disponíveis
 
-| Library | Version | Description |
+| Biblioteca | Versão | Descrição |
 | :--- | :--- | :--- |
-| **Decode.Data** | ![NuGet](https://img.shields.io/nuget/v/Decode.Data) | Agnostic implementation of Unit of Work and DbSession. |
+| **Decode.Data** | ![NuGet](https://img.shields.io/nuget/v/Decode.Data) | Implementação agnóstica de Unit of Work e DbSession. |
 
-## 🛠️ Technologies
+## 🛠️ Tecnologias
 - .NET Standard 2.1+
 - .NET 8 / .NET 9 / .NET 10
 - C# 12
 
-## 📦 Building from Source
-To build all libraries in the repository:
+## 📦 Como Compilar
+Para compilar todas as bibliotecas:
 ```bash
 dotnet build src/Decode.sln
 ```
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 Licença
+Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.

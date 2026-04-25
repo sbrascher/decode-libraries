@@ -8,7 +8,7 @@
 
     <PackageId>Decode.Data</PackageId>
     <Authors>Sérgio Brascher</Authors>
-    <Description>Agnostic implementation of Unit of Work and DbSession for managing database connections and transactions.</Description>
+    <Description>Implementação agnóstica de Unit of Work e DbSession para gerenciamento de conexões e transações.</Description>
     <PackageTags>dapper;unit-of-work;database;repository;ado.net;orm</PackageTags>
     <PackageProjectUrl>https://github.com/sbrascher/decode-libraries</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sbrascher/decode-libraries</RepositoryUrl>

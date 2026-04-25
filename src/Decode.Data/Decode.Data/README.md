@@ -1,28 +1,28 @@
 # Decode.Data
 
-Lightweight and agnostic implementation of **Unit of Work** and **DbSession** patterns for managing database connections and transactions in .NET.
+Implementação leve de **Unit of Work** e **DbSession** para gerenciar conexões e transações no .NET.
 
-## 📦 Installation
+## 📦 Instalação
 
 ```bash
 dotnet add package Decode.Data
 ```
 
-## 🛠️ Usage
+## 🛠️ Como usar
 
-### 1. Dependency Injection Configuration
+### 1. Configuração
 
-In your `Program.cs` or `Startup.cs`:
+No seu `Program.cs`:
 
 ```csharp
 using Decode.Data.Extensions;
-using Microsoft.Data.SqlClient; // Or any other provider of your choice
+using Microsoft.Data.SqlClient;
 
 builder.Services.AddDbSessionAndUnitOfWork(sp => 
     new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 ```
 
-### 2. Using in Repositories or Services
+### 2. Usando em Repositórios
 
 ```csharp
 public class UserRepository
@@ -37,42 +37,29 @@ public class UserRepository
     public async Task AddAsync(User user)
     {
         var connection = await _session.CreateConnectionAsync();
-        // Use your favorite tool (Dapper, ADO.NET, etc.)
-        // connection.Execute("INSERT...", user, _session.Transaction);
+        // Use Dapper ou ADO.NET aqui
     }
 }
 ```
 
-### 3. Managing Transactions with Unit of Work
+### 3. Transações com Unit of Work
 
 ```csharp
-public class UserService
+public async Task CreateUserAsync(User user)
 {
-    private readonly IUnitOfWork _uow;
-    private readonly IUserRepository _repo;
-
-    public UserService(IUnitOfWork uow, IUserRepository repo)
+    await _uow.BeginTransactionAsync();
+    try 
     {
-        _uow = uow;
-        _repo = repo;
+        await _repo.AddAsync(user);
+        await _uow.CommitAsync();
     }
-
-    public async Task CreateUserAsync(User user)
+    catch 
     {
-        await _uow.BeginTransactionAsync();
-        try 
-        {
-            await _repo.AddAsync(user);
-            await _uow.CommitAsync();
-        }
-        catch 
-        {
-            await _uow.RollbackAsync();
-            throw;
-        }
+        await _uow.RollbackAsync();
+        throw;
     }
 }
 ```
 
-## 📄 License
-MIT License.
+## 📄 Licença
+MIT.

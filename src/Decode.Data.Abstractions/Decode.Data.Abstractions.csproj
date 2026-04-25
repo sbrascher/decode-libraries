@@ -8,7 +8,7 @@
 
     <PackageId>Decode.Data.Abstractions</PackageId>
     <Authors>Sérgio Brascher</Authors>
-    <Description>Interfaces and abstractions for Unit of Work and DbSession patterns.</Description>
+    <Description>Interfaces e abstrações para os padrões Unit of Work e DbSession.</Description>
     <PackageTags>dapper;unit-of-work;database;abstractions;repository</PackageTags>
     <PackageProjectUrl>https://github.com/sbrascher/decode-libraries</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sbrascher/decode-libraries</RepositoryUrl>
