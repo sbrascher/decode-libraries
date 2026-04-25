@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <PackageId>Decode.Notifications.FluentValidation</PackageId>
+    <Title>Decode Notifications FluentValidation Extensions</Title>
+    <Version>1.0.1</Version>
+    <Authors>Sérgio Brascher</Authors>
+    <Description>FluentValidation extensions for Decode Notifications library.</Description>
+    <PackageTags>notifications;domain-notifications;notification-pattern;decode;fluentvalidation</PackageTags>
+    <PackageProjectUrl>https://github.com/sbrascher/decode-libraries</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sbrascher/decode-libraries</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Decode.Notifications\Decode.Notifications.csproj" />
+  </ItemGroup>
+
+</Project>
