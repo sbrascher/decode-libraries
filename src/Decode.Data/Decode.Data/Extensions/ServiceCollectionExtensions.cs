@@ -6,7 +6,7 @@ using System.Data.Common;
 namespace Decode.Data.Extensions;
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddDbSessionAndUnitOfWork(
+    public static IServiceCollection AddUnitOfWork(
         this IServiceCollection services,
         Func<IServiceProvider, DbConnection> connectionFactory)
     {
