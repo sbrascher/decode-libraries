@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decode.Data", "Decode.Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decode.Data.Abstractions", "Decode.Data.Abstractions\Decode.Data.Abstractions.csproj", "{8B7B0A1A-402D-417D-8079-12D511FA5C8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decode.Notifications", "Decode.Notifications\Decode.Notifications.csproj", "{C59F0C3D-E1AD-4CBD-91F4-79968787C692}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8B7B0A1A-402D-417D-8079-12D511FA5C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B7B0A1A-402D-417D-8079-12D511FA5C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B7B0A1A-402D-417D-8079-12D511FA5C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59F0C3D-E1AD-4CBD-91F4-79968787C692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59F0C3D-E1AD-4CBD-91F4-79968787C692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59F0C3D-E1AD-4CBD-91F4-79968787C692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59F0C3D-E1AD-4CBD-91F4-79968787C692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
