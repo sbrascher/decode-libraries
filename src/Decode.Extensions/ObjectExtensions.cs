@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace Decode.Extensions;
 
 /// <summary>
@@ -78,7 +76,11 @@ public static class ObjectExtensions
     /// </summary>
     public static T ToEnum<T>(this object value) where T : struct
     {
-        if (value == null) throw new ArgumentNullException(nameof(value));
+        if (value == null)
+        {
+            throw new ArgumentNullException(nameof(value));
+        }
+
         return (T)Enum.Parse(typeof(T), value.ToString()!, true);
     }
 
