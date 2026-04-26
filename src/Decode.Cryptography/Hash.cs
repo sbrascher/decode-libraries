@@ -42,7 +42,7 @@ public static class Hash
         byte[] hash = Rfc2898DeriveBytes.Pbkdf2(passwordBytes, salt, iterations, HashAlgorithmName.SHA256, hashSize);
         return Convert.ToBase64String(hash);
 #else
-        using var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, salt, iterations, HashAlgorithmName.SHA256);
+        using Rfc2898DeriveBytes pbkdf2 = new(passwordBytes, salt, iterations, HashAlgorithmName.SHA256);
         return Convert.ToBase64String(pbkdf2.GetBytes(hashSize));
 #endif
     }
@@ -112,7 +112,7 @@ public static class Hash
     {
         byte[] computedHash = ComputeSha256ToByteArray(content, iterations);
         byte[] hashToVerifyBytes = Utils.FromHexString(hashToVerify);
-        
+
         return CryptographicOperations.FixedTimeEquals(computedHash, hashToVerifyBytes);
     }
 
