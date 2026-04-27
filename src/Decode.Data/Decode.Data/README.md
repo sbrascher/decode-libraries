@@ -18,7 +18,7 @@ In your `Program.cs` or `Startup.cs`:
 using Decode.Data.Extensions;
 using Microsoft.Data.SqlClient; // Or any other provider of your choice
 
-builder.Services.AddDbSessionAndUnitOfWork(sp =>
+builder.Services.AddUnitOfWork(sp =>
     new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 ```
 

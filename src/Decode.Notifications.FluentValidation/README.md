@@ -26,10 +26,10 @@ public class UserValidator : AbstractValidator<User>
 
 public class UserService
 {
-    private readonly IDomainNotificationContext _context;
+    private readonly DomainNotificationContext _context;
     private readonly IValidator<User> _validator;
 
-    public UserService(IDomainNotificationContext context, IValidator<User> validator)
+    public UserService(DomainNotificationContext context, IValidator<User> validator)
     {
         _context = context;
         _validator = validator;
@@ -40,7 +40,7 @@ public class UserService
         var result = await _validator.ValidateAsync(user);
 
         // This will map all FluentValidation errors to the Notification Context
-        result.AddToContext(_context);
+        _context.AddValidationResult(result);
 
         if (_context.HasNotifications)
             return;

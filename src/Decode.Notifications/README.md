@@ -17,7 +17,7 @@ In your `Program.cs` or `Startup.cs`:
 ```csharp
 using Decode.Notifications.Extensions;
 
-builder.Services.AddDecodeNotifications();
+builder.Services.AddDomainNotifications();
 ```
 
 ### 2. Using in Services or Domain Logic

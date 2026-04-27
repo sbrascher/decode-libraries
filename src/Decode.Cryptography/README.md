@@ -32,6 +32,7 @@ string hash = Hash.HashPasswordToBase64String("user-password", salt);
 ### Computing HMAC-SHA256
 
 ```csharp
+// hexKey must be a valid hexadecimal string
 string hmac = Hash.ComputeHmacSha256ToBase64String(hexKey, "content");
 ```
 
