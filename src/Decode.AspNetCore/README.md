@@ -63,7 +63,7 @@ public class ProductsController : ApiControllerBase
     {
         _service.Create(product);
 
-        // If _service added notifications to the context, 
+        // If _service added notifications to the context,
         // Response() will return 400 Bad Request (or the specific status code set).
         // Otherwise, it returns 200 OK.
         return Response(product);

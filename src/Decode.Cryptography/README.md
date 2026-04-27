@@ -2,7 +2,7 @@
 
 Modern and secure cryptography utilities for .NET, providing a clean API for common cryptographic operations.
 
-## Features
+## 🚀 Features
 
 - **Secure Password Hashing (PBKDF2):** Key derivation using HMAC-SHA256 with 100,000 iterations by default (OWASP recommended).
 - **Timing Attack Protection:** Uses `CryptographicOperations.FixedTimeEquals` for all verification methods.
@@ -11,7 +11,7 @@ Modern and secure cryptography utilities for .NET, providing a clean API for com
 - **HEX & Base64:** Optimized conversions for cryptographic data using modern .NET primitives.
 - **Modern .NET:** Fully optimized for .NET 8/9 using `Span<byte>` and native HEX conversions.
 
-## Usage
+## 📖 Usage
 
 ### Hashing a Password (PBKDF2)
 
@@ -47,9 +47,12 @@ string hex = Utils.ToHexString(data);
 byte[] back = Utils.FromHexString(hex);
 ```
 
-## Security Note
+## 🔒 Security Note
 
 This library follows modern security standards:
 - **No MD5/SHA1:** Insecure algorithms are not included.
 - **Constant-Time Comparison:** Prevents side-channel timing attacks during hash verification.
 - **High Iteration Count:** Protects against modern GPU-based brute-force attacks.
+
+## 📄 License
+MIT License.

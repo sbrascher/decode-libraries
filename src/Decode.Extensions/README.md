@@ -55,7 +55,7 @@ var status = invalidStatus.ToEnumOrNull<UserStatus>(); // returns null
 Returns `true` if the conversion is possible without throwing an exception.
 ```csharp
 object rawValue = "123";
-if (rawValue.IsParseableTo<int>()) 
+if (rawValue.IsParseableTo<int>())
 {
     // safe to convert
 }

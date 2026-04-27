@@ -63,7 +63,7 @@ public class UsersController : ControllerBase
     public IActionResult Create(UserDto user)
     {
         // Call service...
-        
+
         if (_notificationContext.HasNotifications)
         {
             return StatusCode(_notificationContext.GetStatusCode(), _notificationContext.GetMessages());

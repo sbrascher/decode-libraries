@@ -38,7 +38,7 @@ public class UserService
     public async Task CreateUser(User user)
     {
         var result = await _validator.ValidateAsync(user);
-        
+
         // This will map all FluentValidation errors to the Notification Context
         result.AddToContext(_context);
 

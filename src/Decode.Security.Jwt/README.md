@@ -2,14 +2,14 @@
 
 A high-performance and reusable JWT (JSON Web Token) library for the Decode ecosystem.
 
-## Features
+## 🚀 Features
 
 - **Decoupled:** Completely independent of business logic (works with `Claims`).
 - **High Performance:** Uses `Microsoft.IdentityModel.JsonWebTokens` (the newest and fastest JWT library for .NET).
 - **Modern:** Built for .NET 8/9, targeting `netstandard2.1` for maximum compatibility.
 - **Full Support:** Includes token generation AND validation.
 
-## Installation
+## 📦 Installation
 
 Register the service in your `Program.cs`:
 
@@ -25,7 +25,7 @@ builder.Services.AddJwt(options =>
 });
 ```
 
-## Usage
+## 📖 Usage
 
 Inject `IJwtService` into your controllers or services:
 
@@ -52,3 +52,6 @@ public class AuthService
     }
 }
 ```
+
+## 📄 License
+MIT License.

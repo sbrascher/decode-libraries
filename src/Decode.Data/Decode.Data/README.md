@@ -18,7 +18,7 @@ In your `Program.cs` or `Startup.cs`:
 using Decode.Data.Extensions;
 using Microsoft.Data.SqlClient; // Or any other provider of your choice
 
-builder.Services.AddDbSessionAndUnitOfWork(sp => 
+builder.Services.AddDbSessionAndUnitOfWork(sp =>
     new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 ```
 
@@ -65,7 +65,7 @@ public class UserService
             await _repo.AddAsync(user);
             await _uow.CommitAsync();
         }
-        catch 
+        catch
         {
             await _uow.RollbackAsync();
             throw;
