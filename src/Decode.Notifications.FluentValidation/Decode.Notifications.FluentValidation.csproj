@@ -8,7 +8,7 @@
     
     <PackageId>Decode.Notifications.FluentValidation</PackageId>
     <Title>Decode Notifications FluentValidation Extensions</Title>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Sérgio Brascher</Authors>
     <Description>FluentValidation extensions for Decode Notifications library.</Description>
     <PackageTags>notifications;domain-notifications;notification-pattern;decode;fluentvalidation</PackageTags>

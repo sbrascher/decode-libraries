@@ -18,4 +18,15 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
+
+    /// <summary>
+    /// Adds domain notification services to the specified <see cref="IServiceCollection" />.
+    /// This is an alias for <see cref="AddDomainNotifications(IServiceCollection)" /> to ensure backward and forward compatibility.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+    /// <returns>The <see cref="IServiceCollection" /> so that additional calls can be chained.</returns>
+    public static IServiceCollection AddDecodeNotifications(this IServiceCollection services)
+    {
+        return services.AddDomainNotifications();
+    }
 }

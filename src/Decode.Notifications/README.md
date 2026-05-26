@@ -17,6 +17,7 @@ In your `Program.cs` or `Startup.cs`:
 ```csharp
 using Decode.Notifications.Extensions;
 
+// You can use AddDomainNotifications() or the alias AddDecodeNotifications()
 builder.Services.AddDomainNotifications();
 ```
 

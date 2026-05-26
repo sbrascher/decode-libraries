@@ -26,10 +26,10 @@ public class UserValidator : AbstractValidator<User>
 
 public class UserService
 {
-    private readonly DomainNotificationContext _context;
+    private readonly IDomainNotificationContext _context;
     private readonly IValidator<User> _validator;
 
-    public UserService(DomainNotificationContext context, IValidator<User> validator)
+    public UserService(IDomainNotificationContext context, IValidator<User> validator)
     {
         _context = context;
         _validator = validator;
