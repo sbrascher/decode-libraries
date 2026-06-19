@@ -38,6 +38,8 @@ Para entender o propósito específico e ver exemplos de uso de cada biblioteca,
 - **[Decode.Notifications.FluentValidation](file:///D:/Projetos/Decode/Libraries/src/Decode.Notifications.FluentValidation/README.md):** Extensões para integrar validações do FluentValidation.
 - **[Decode.Security.Jwt](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.Jwt/README.md):** Geração e validação de tokens JWT.
 - **[Decode.Security.Jwt.Abstractions](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.Jwt.Abstractions/README.md):** Contratos e configurações de token JWT.
+- **[Decode.Security.ApiKey](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.ApiKey/README.md):** Middleware e autenticação por API Key para ASP.NET Core.
+- **[Decode.Security.ApiKey.Abstractions](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.ApiKey.Abstractions/README.md):** Abstrações e contratos de validação para API Keys.
 
 ## 🤖 Regras de Comportamento para Agentes de IA
 - **Preservação de Documentação:** Preserve todos os comentários XML existentes e docstrings que não forem diretamente afetados pelas suas alterações.
