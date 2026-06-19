@@ -27,7 +27,7 @@ public class JwtService : IJwtService
     /// <inheritdoc />
     public string CreateToken(IEnumerable<Claim> claims, int? expiresMinutes = null)
     {
-        using var activity = DecodeJwtDiagnostics.Source.StartActivity("JwtService.CreateToken");
+        using System.Diagnostics.Activity? activity = DecodeJwtDiagnostics.Source.StartActivity("JwtService.CreateToken");
         SymmetricSecurityKey key = new(Encoding.UTF8.GetBytes(_options.Secret));
         SigningCredentials credentials = new(key, SecurityAlgorithms.HmacSha256);
 
@@ -40,7 +40,7 @@ public class JwtService : IJwtService
             SigningCredentials = credentials
         };
 
-        var token = _tokenHandler.CreateToken(tokenDescriptor);
+        string token = _tokenHandler.CreateToken(tokenDescriptor);
         DecodeJwtDiagnostics.TokenGeneratedCounter.Add(1);
         return token;
     }
@@ -56,7 +56,7 @@ public class JwtService : IJwtService
     /// <inheritdoc />
     public async Task<ClaimsPrincipal?> GetPrincipalFromTokenAsync(string token)
     {
-        using var activity = DecodeJwtDiagnostics.Source.StartActivity("JwtService.ValidateToken");
+        using System.Diagnostics.Activity? activity = DecodeJwtDiagnostics.Source.StartActivity("JwtService.ValidateToken");
         if (string.IsNullOrWhiteSpace(token))
         {
             DecodeJwtDiagnostics.TokenValidationErrorCounter.Add(1, new KeyValuePair<string, object?>("reason", "EmptyToken"));

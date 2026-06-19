@@ -18,7 +18,7 @@ public sealed class DbSession : IDbSession
 
     public async Task<DbConnection> CreateConnectionAsync(CancellationToken cancellationToken = default)
     {
-        using var activity = DecodeDataDiagnostics.Source.StartActivity("DbSession.CreateConnection");
+        using System.Diagnostics.Activity? activity = DecodeDataDiagnostics.Source.StartActivity("DbSession.CreateConnection");
         _connection ??= _connectionFactory();
 
         if (_connection.State != System.Data.ConnectionState.Open)

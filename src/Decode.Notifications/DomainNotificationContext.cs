@@ -19,7 +19,7 @@ public class DomainNotificationContext : IDomainNotificationContext
     public void Add(string message, HttpStatusCode statusCode = HttpStatusCode.BadRequest, string? key = null)
     {
         _notifications.Add(new DomainNotification(message, (int)statusCode, key));
-        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1, 
+        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1,
             new KeyValuePair<string, object?>("key", key ?? "global"),
             new KeyValuePair<string, object?>("status_code", (int)statusCode));
     }
@@ -28,7 +28,7 @@ public class DomainNotificationContext : IDomainNotificationContext
     public void Add(DomainNotification notification)
     {
         _notifications.Add(notification);
-        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1, 
+        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1,
             new KeyValuePair<string, object?>("key", notification.Key ?? "global"),
             new KeyValuePair<string, object?>("status_code", notification.StatusCode));
     }
@@ -36,7 +36,7 @@ public class DomainNotificationContext : IDomainNotificationContext
     /// <inheritdoc />
     public void AddRange(IEnumerable<DomainNotification> notifications)
     {
-        foreach (var notification in notifications)
+        foreach (DomainNotification notification in notifications)
         {
             Add(notification);
         }

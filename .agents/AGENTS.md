@@ -15,6 +15,7 @@ Este arquivo define regras de desenvolvimento, diretrizes arquiteturais e prefer
    - Nullable Reference Types (`#nullable enable`) devem estar habilitados e respeitados (evite avisos/warnings do compilador).
    - Use File-scoped Namespaces (`namespace MeuNamespace;`) em vez do estilo em bloco tradicional.
    - Escreva comentários XML detalhados em todos os membros e tipos públicos.
+   - **Tipagem Explícita:** Prefira tipagem explícita em vez do uso do tipo implícito `var` (ex: use `string token = ...`, `using Activity? activity = ...`, `foreach (DomainNotification notification in ...)`). Evite o uso de `var` a menos que seja estritamente necessário (como para tipos anônimos).
 3. **Padrões de Projeto (Design Patterns):**
    - **Decode.Data:** Padrão *Unit of Work* (`IUnitOfWork`) e gerenciamento de conexões transacionais via `DbSession` (usando Dapper/ADO.NET).
    - **Decode.Notifications:** Padrão *Domain Notification* para validações e capturas de erros de negócio através do `IDomainNotificationContext`, evitando lançar exceções para fluxos de negócio esperados.
