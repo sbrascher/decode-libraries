@@ -1,7 +1,7 @@
-using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Text.Encodings.Web;
 
 namespace Decode.Security.ApiKey;
 
@@ -31,12 +31,12 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyOptions>
     /// <returns>The <see cref="AuthenticateResult"/> of the authentication process.</returns>
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
-        if (!Request.Headers.TryGetValue(Options.HeaderName, out var apiKeyValues))
+        if (!Request.Headers.TryGetValue(Options.HeaderName, out Microsoft.Extensions.Primitives.StringValues apiKeyValues))
         {
             return AuthenticateResult.NoResult();
         }
 
-        var apiKey = apiKeyValues.FirstOrDefault();
+        string? apiKey = apiKeyValues.FirstOrDefault();
         if (string.IsNullOrWhiteSpace(apiKey))
         {
             return AuthenticateResult.Fail("API Key is empty.");
@@ -44,14 +44,14 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyOptions>
 
         try
         {
-            var result = await _apiKeyValidator.ValidateAsync(apiKey, Context.RequestAborted);
+            ApiKeyValidationResult result = await _apiKeyValidator.ValidateAsync(apiKey, Context.RequestAborted);
             if (!result.IsValid || result.Principal == null)
             {
                 Logger.LogWarning("API Key validation failed.");
                 return AuthenticateResult.Fail("Invalid API Key.");
             }
 
-            var ticket = new AuthenticationTicket(result.Principal, Scheme.Name);
+            AuthenticationTicket ticket = new(result.Principal, Scheme.Name);
             return AuthenticateResult.Success(ticket);
         }
         catch (Exception ex)

@@ -2,7 +2,6 @@ using System.Security.Claims;
 
 namespace Decode.Security.Jwt;
 
-
 /// <summary>
 /// Service for handling JWT (JSON Web Token) operations.
 /// </summary>

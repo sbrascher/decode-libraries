@@ -22,7 +22,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<IApiKeyValidator, TValidator>();
 
-        var options = new ApiKeyOptions();
+        ApiKeyOptions options = new();
         configureOptions?.Invoke(options);
 
         return services.AddAuthentication(options.Scheme)
