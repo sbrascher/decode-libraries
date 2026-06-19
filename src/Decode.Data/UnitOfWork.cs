@@ -1,4 +1,4 @@
-﻿using Decode.Data.Abstractions;
+using Decode.Data.Abstractions;
 using System.Data.Common;
 
 namespace Decode.Data;
@@ -14,6 +14,7 @@ public sealed class UnitOfWork : IUnitOfWork
 
     public async Task BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
+        using var activity = DecodeDataDiagnostics.Source.StartActivity("UnitOfWork.BeginTransaction");
         if (_session.Transaction == null)
         {
             DbConnection? connection = await _session.CreateConnectionAsync(cancellationToken);
@@ -23,6 +24,7 @@ public sealed class UnitOfWork : IUnitOfWork
 
     public async Task CommitAsync(CancellationToken cancellationToken = default)
     {
+        using var activity = DecodeDataDiagnostics.Source.StartActivity("UnitOfWork.Commit");
         try
         {
             if (_session.Transaction is not null)
@@ -38,6 +40,7 @@ public sealed class UnitOfWork : IUnitOfWork
 
     public async Task RollbackAsync(CancellationToken cancellationToken = default)
     {
+        using var activity = DecodeDataDiagnostics.Source.StartActivity("UnitOfWork.Rollback");
         try
         {
             if (_session.Transaction is not null)

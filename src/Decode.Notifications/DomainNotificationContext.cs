@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace Decode.Notifications;
 
@@ -19,18 +19,27 @@ public class DomainNotificationContext : IDomainNotificationContext
     public void Add(string message, HttpStatusCode statusCode = HttpStatusCode.BadRequest, string? key = null)
     {
         _notifications.Add(new DomainNotification(message, (int)statusCode, key));
+        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1, 
+            new KeyValuePair<string, object?>("key", key ?? "global"),
+            new KeyValuePair<string, object?>("status_code", (int)statusCode));
     }
 
     /// <inheritdoc />
     public void Add(DomainNotification notification)
     {
         _notifications.Add(notification);
+        DecodeNotificationsDiagnostics.NotificationAddedCounter.Add(1, 
+            new KeyValuePair<string, object?>("key", notification.Key ?? "global"),
+            new KeyValuePair<string, object?>("status_code", notification.StatusCode));
     }
 
     /// <inheritdoc />
     public void AddRange(IEnumerable<DomainNotification> notifications)
     {
-        _notifications.AddRange(notifications);
+        foreach (var notification in notifications)
+        {
+            Add(notification);
+        }
     }
 
     /// <inheritdoc />
