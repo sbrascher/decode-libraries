@@ -64,9 +64,19 @@ public class ProductsController : ApiControllerBase
         _service.Create(product);
 
         // If _service added notifications to the context,
-        // Response() will return 400 Bad Request (or the specific status code set).
-        // Otherwise, it returns 200 OK.
-        return Response(product);
+        // CreatedResponse() will automatically return 400 Bad Request (or the notification code).
+        // Otherwise, it returns 201 Created.
+        return CreatedResponse($"/api/products/{product.Id}", product);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Product product)
+    {
+        _service.Update(id, product);
+
+        // You can override the default success status code (200 OK) using the optional parameter.
+        // E.g., returning 202 Accepted on success:
+        return Response(product, 202);
     }
 }
 ```

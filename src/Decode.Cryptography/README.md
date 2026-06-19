@@ -36,7 +36,43 @@ string hash = Hash.HashPasswordToBase64String("user-password", salt);
 string hmac = Hash.ComputeHmacSha256ToBase64String(hexKey, "content");
 ```
 
+### SHA256 Hashing & Verification
+
+Useful for checking file integrity or raw data hashing.
+
+```csharp
+// Generate SHA256 hash as Hex string
+string sha256Hex = Hash.ComputeSha256ToHexString("my-content");
+
+// Verify if a content matches a hash (uses Constant-Time comparison)
+bool isSha256Valid = Hash.VerifySha256("my-content", sha256Hex);
+```
+
+### HMAC-SHA256 Verification
+
+Useful for verifying webhooks or request signatures.
+
+```csharp
+bool isSignatureValid = Hash.VerifyHmacSha256(hexKey, "content", base64HashToVerify);
+```
+
+### Array Manipulation
+
+Utilities to combine and split byte arrays/spans efficiently:
+
+```csharp
+byte[] part1 = [0x01, 0x02];
+byte[] part2 = [0x03, 0x04];
+
+// Combine arrays
+byte[] combined = Utils.CombineArray(part1, part2);
+
+// Split arrays back (splits 'combined' into first 2 bytes and the rest)
+Utils.SplitArray(combined, length: 2, out byte[] first, out byte[] second);
+```
+
 ### HEX Conversions
+
 
 ```csharp
 byte[] data = [0xDE, 0xAD, 0xBE, 0xEF];

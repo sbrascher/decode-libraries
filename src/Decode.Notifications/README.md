@@ -46,7 +46,37 @@ public class UserService
 }
 ```
 
-### 3. Handling Notifications in Controllers/Middleware
+### 3. The `DomainNotification` Model & Context Operations
+
+Under the hood, notifications are stored as `DomainNotification` objects in the context.
+
+#### DomainNotification Class Structure
+
+- **Message (`string`):** The validation or error message.
+- **StatusCode (`int`):** The HTTP status code representation (defaults to `400`).
+- **Key (`string?`):** Optional parameter representing the field name or key (e.g. `nameof(username)`).
+
+#### Additional Context Methods
+
+You can also add individual notifications directly or batch multiple notifications:
+
+```csharp
+// Add an explicit DomainNotification object
+_notificationContext.Add(new DomainNotification("Email is invalid", 422, "Email"));
+
+// Add a collection of DomainNotifications at once (useful for batch validations)
+var notificationBatch = new List<DomainNotification>
+{
+    new DomainNotification("Password is too short", 400, "Password"),
+    new DomainNotification("Password must contain a number", 400, "Password")
+};
+_notificationContext.AddRange(notificationBatch);
+
+// Retrieve all raw notifications currently in the context
+IReadOnlyCollection<DomainNotification> rawNotifications = _notificationContext.Notifications;
+```
+
+### 4. Handling Notifications in Controllers/Middleware
 
 ```csharp
 [ApiController]

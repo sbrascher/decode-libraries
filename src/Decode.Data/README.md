@@ -34,9 +34,9 @@ public class UserRepository
         _session = session;
     }
 
-    public async Task AddAsync(User user)
+    public async Task AddAsync(User user, CancellationToken cancellationToken = default)
     {
-        var connection = await _session.CreateConnectionAsync();
+        var connection = await _session.CreateConnectionAsync(cancellationToken);
         // Use your favorite tool (Dapper, ADO.NET, etc.)
         // connection.Execute("INSERT...", user, _session.Transaction);
     }
@@ -57,17 +57,17 @@ public class UserService
         _repo = repo;
     }
 
-    public async Task CreateUserAsync(User user)
+    public async Task CreateUserAsync(User user, CancellationToken cancellationToken = default)
     {
-        await _uow.BeginTransactionAsync();
+        await _uow.BeginTransactionAsync(cancellationToken);
         try 
         {
-            await _repo.AddAsync(user);
-            await _uow.CommitAsync();
+            await _repo.AddAsync(user, cancellationToken);
+            await _uow.CommitAsync(cancellationToken);
         }
         catch
         {
-            await _uow.RollbackAsync();
+            await _uow.RollbackAsync(cancellationToken);
             throw;
         }
     }

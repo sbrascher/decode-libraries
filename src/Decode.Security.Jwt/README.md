@@ -53,5 +53,39 @@ public class AuthService
 }
 ```
 
+### Validating a Token
+
+To validate a token and retrieve its claims, use `GetPrincipalFromToken` or its asynchronous equivalent `GetPrincipalFromTokenAsync`:
+
+```csharp
+using System.Security.Claims;
+
+public class TokenValidatorService
+{
+    private readonly IJwtService _jwtService;
+
+    public TokenValidatorService(IJwtService jwtService)
+    {
+        _jwtService = jwtService;
+    }
+
+    public async Task<bool> ValidateUserToken(string token)
+    {
+        // Validates signature, issuer, audience, and expiration lifetime.
+        // Returns a ClaimsPrincipal containing the claims if valid; otherwise, returns null.
+        ClaimsPrincipal? principal = await _jwtService.GetPrincipalFromTokenAsync(token);
+        
+        if (principal == null)
+        {
+            return false;
+        }
+
+        var userId = principal.FindFirst("id")?.Value;
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
+        return true;
+    }
+}
+```
+
 ## 📄 License
 MIT License.

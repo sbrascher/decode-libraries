@@ -39,8 +39,13 @@ public class UserService
     {
         var result = await _validator.ValidateAsync(user);
 
-        // This will map all FluentValidation errors to the Notification Context
+        // This will map all FluentValidation failures to the Domain Notification Context.
+        // By default, it maps them as HTTP 400 Bad Request.
         _context.AddValidationResult(result);
+
+        // Alternatively, you can override the HTTP status code (e.g., HTTP 422 Unprocessable Entity):
+        // using System.Net;
+        // _context.AddValidationResult(result, HttpStatusCode.UnprocessableEntity);
 
         if (_context.HasNotifications)
             return;

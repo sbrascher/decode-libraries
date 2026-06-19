@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Decode.Data.Abstractions\Decode.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Decode.Data.Abstractions\Decode.Data.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
