@@ -31,6 +31,7 @@ public static class ServiceCollectionExtensions
 
         services.Configure(configureOptions);
         services.TryAddTransient<IStorageService, AzureBlobStorageService>();
+        services.TryAddSingleton<IFileValidator, FileSignatureValidator>();
 
         return services;
     }

@@ -31,6 +31,7 @@ public static class ServiceCollectionExtensions
 
         services.Configure(configureOptions);
         services.TryAddTransient<IStorageService, FileSystemStorageService>();
+        services.TryAddSingleton<IFileValidator, FileSignatureValidator>();
 
         return services;
     }

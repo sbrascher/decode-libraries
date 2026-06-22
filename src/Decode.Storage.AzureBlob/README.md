@@ -25,6 +25,9 @@ builder.Services.AddAzureBlobStorage(options =>
 });
 ```
 
+> [!NOTE]
+> This registration automatically registers `IFileValidator` (implemented by `FileSignatureValidator`) as a singleton in your dependency injection container.
+
 ### 2. Inject and Use in Services
 
 ```csharp

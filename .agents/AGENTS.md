@@ -41,6 +41,10 @@ Para entender o propósito específico e ver exemplos de uso de cada biblioteca,
 - **[Decode.Security.Jwt.Abstractions](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.Jwt.Abstractions/README.md):** Contratos e configurações de token JWT.
 - **[Decode.Security.ApiKey](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.ApiKey/README.md):** Middleware e autenticação por API Key para ASP.NET Core.
 - **[Decode.Security.ApiKey.Abstractions](file:///D:/Projetos/Decode/Libraries/src/Decode.Security.ApiKey.Abstractions/README.md):** Abstrações e contratos de validação para API Keys.
+- **[Decode.Storage.Abstractions](file:///D:/Projetos/Decode/Libraries/src/Decode.Storage.Abstractions/README.md):** Abstrações de armazenamento e validador de assinaturas (Magic Numbers).
+- **[Decode.Storage.FileSystem](file:///D:/Projetos/Decode/Libraries/src/Decode.Storage.FileSystem/README.md):** Provedor de armazenamento em FileSystem local com escrita atômica.
+- **[Decode.Storage.AzureBlob](file:///D:/Projetos/Decode/Libraries/src/Decode.Storage.AzureBlob/README.md):** Provedor de armazenamento em nuvem no Azure Blob Storage com streaming.
+- **[Decode.Telemetry](file:///D:/Projetos/Decode/Libraries/src/Decode.Telemetry/README.md):** Integração unificada de OpenTelemetry para rastreabilidade e métricas de desempenho.
 
 ## 🤖 Regras de Comportamento para Agentes de IA
 - **Preservação de Documentação:** Preserve todos os comentários XML existentes e docstrings que não forem diretamente afetados pelas suas alterações.
